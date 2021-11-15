@@ -1,12 +1,13 @@
 import './App.css';
 import { BrowserRouter as Router } from "react-router-dom";
 import { Route, Link } from "react-router-dom";
+import Login from './pages/Login';
 
 function App() {
   return (
-    <div className="App">
-      <h1>CIAO DOVILE</h1>
-    </div>
+   <Router>
+      <Route path="/" component={Login}/>
+   </Router>
   );
 }
 

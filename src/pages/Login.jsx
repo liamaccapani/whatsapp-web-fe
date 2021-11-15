@@ -24,7 +24,7 @@ const Login = () => {
         <Form.Label>Your email</Form.Label>
           <Form.Control size="sm" type="email" placeholder="" />
           <Form.Label>Your password</Form.Label>
-          <Form.Control size="sm" type="email" placeholder="" />
+          <Form.Control size="sm" type="password" placeholder="" />
         </Form.Group>
 
         <button className="googleButton">

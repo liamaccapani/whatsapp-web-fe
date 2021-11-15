@@ -21,6 +21,8 @@ const Login = () => {
       <div className="formContainer">
           <p className="formTitle" >Login on your WhatsApp Account</p>
         <Form.Group>
+        <Form.Label>Your User Name</Form.Label>
+          <Form.Control size="sm" type="text" placeholder="" />
         <Form.Label>Your email</Form.Label>
           <Form.Control size="sm" type="email" placeholder="" />
           <Form.Label>Your password</Form.Label>

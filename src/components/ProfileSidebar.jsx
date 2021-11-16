@@ -1,11 +1,15 @@
-import { Col } from "react-bootstrap"
+import { Col, Container, Row } from "react-bootstrap";
 
 const ProfileSidebar = () => {
-    return(
-        <Col xs={12} sm={4}>
-            <div>Profile Details here</div>
+  return (
+    <Container>
+      <Row>
+        <Col className="left-side px-0" xs={12} sm={4}>
+          hello
         </Col>
-    )
-}
+      </Row>
+    </Container>
+  );
+};
 
-export default ProfileSidebar
+export default ProfileSidebar;

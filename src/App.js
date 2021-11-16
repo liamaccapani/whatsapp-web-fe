@@ -6,7 +6,6 @@ import Main from "../src/components/Main.jsx"
 function App() {
   return (
     <div className="App">
-      {/* <h1>CIAO DOVILE</h1> */}
       <Main/>
     </div>
   );

@@ -1,18 +1,24 @@
 import { useState } from "react";
-import { Container, Dropdown, ListGroup } from "react-bootstrap";
+import {
+  Container,
+  Dropdown,
+  ListGroup,
+  Nav,
+  NavDropdown,
+} from "react-bootstrap";
 import {
   BsThreeDotsVertical,
   BsFillChatFill,
   BsFillExclamationCircleFill,
 } from "react-icons/bs";
-import ProfileSidebar from "./ProfileSidebar"
+import ProfileSidebar from "./ProfileSidebar";
 
 const Navbar = () => {
   const [dropdown, setDropdown] = useState(false);
   const [profile, setProfile] = useState(false);
 
   const showProfile = (e) => {
-    setProfile(!profile)
+    setProfile(!profile);
   };
 
   const toggleDropdown = (e) => {
@@ -31,9 +37,7 @@ const Navbar = () => {
           onClick={(e) => showProfile()}
         />
       </div>
-      {
-        profile && <ProfileSidebar />
-      }
+      {profile && <ProfileSidebar />}
       <Container fluid className="--icons px-0">
         <span>
           <BsFillChatFill />
@@ -43,15 +47,26 @@ const Navbar = () => {
         </span>
         <span className="ml-3">
           <BsThreeDotsVertical onClick={(e) => toggleDropdown()} />
+          {dropdown && (
+            <NavDropdown className="my-2">
+              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.2">
+                Another action
+              </NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="#action/3.4">
+                Separated link
+              </NavDropdown.Item>
+            </NavDropdown>
+
+            // <ListGroup className="my-2">
+            //   <ListGroup.Item>Hello</ListGroup.Item>
+            //   <ListGroup.Item>renders horizontally</ListGroup.Item>
+            //   <ListGroup.Item>on</ListGroup.Item>
+            //   <ListGroup.Item>and above!</ListGroup.Item>
+            // </ListGroup>
+          )}
         </span>
-        {dropdown && (
-          <ListGroup className="my-2">
-            <ListGroup.Item>Hello</ListGroup.Item>
-            <ListGroup.Item>renders horizontally</ListGroup.Item>
-            <ListGroup.Item>on</ListGroup.Item>
-            <ListGroup.Item>and above!</ListGroup.Item>
-          </ListGroup>
-        )}
       </Container>
     </Container>
   );

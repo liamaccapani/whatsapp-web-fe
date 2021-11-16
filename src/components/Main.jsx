@@ -2,7 +2,7 @@ import { Col, Container, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "../styles/ChatMain.css";
 import Sidebar from "./Sidebar";
-import Chat from "./Chat";
+import ChatMain from "./ChatMain";
 
 const Main = () => {
   return (
@@ -13,7 +13,7 @@ const Main = () => {
         </Col>
 
         <Col className="right-side px-0" xs={0} sm={8}>
-          <Chat />
+          <ChatMain />
         </Col>
       </Row>
     </Container>

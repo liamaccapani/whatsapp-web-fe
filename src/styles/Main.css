@@ -13,7 +13,7 @@
 
 
 /* SIDEBAR */
-.--profile-navbar {
+.--profile-icons {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -30,4 +30,22 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+}
+
+.--mainChat-nav-container {
+    box-sizing: border-box;
+    position: relative;
+    height: 60px;
+    background-color: rgb(58, 58, 58);
+    display: flex;
+    justify-content: space-between;
+}
+
+.--chat-nav {
+    position: absolute;
+}
+
+.chat-list {
+    color: black;
+    margin-bottom: 10rem;
 }

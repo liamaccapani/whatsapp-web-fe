@@ -12,7 +12,7 @@ import {
   BsFillChatFill,
   BsFillExclamationCircleFill,
 } from "react-icons/bs";
-import ChatList from "./ChatList"
+import ChatsLists from "./ChatsLists"
 
 // 2) Show and Hide profile details
 // 3) Filter chats with query
@@ -26,8 +26,8 @@ const Sidebar = ({ showProfile }) => {
   };
 
   return (
-    <Container className="--chat-sidebar py-3">
-      <Container fluid className="--profile-navbar px-0 mb-4">
+    <Container className="--chat-sidebar py-3 px-0">
+      <Container fluid className="--profile-icons px-3 mb-4">
         <div>
           <img
             alt=""
@@ -55,7 +55,7 @@ const Sidebar = ({ showProfile }) => {
                 </NavDropdown.Item>
                 <NavDropdown.Divider />
                 <NavDropdown.Item href="#action/3.4">
-                  Separated link
+                  Logout
                 </NavDropdown.Item>
               </NavDropdown>
             )}
@@ -63,7 +63,7 @@ const Sidebar = ({ showProfile }) => {
         </Container>
       </Container>
       <hr />
-      <ChatList/>
+      <ChatsLists/>
     </Container>
   );
 };

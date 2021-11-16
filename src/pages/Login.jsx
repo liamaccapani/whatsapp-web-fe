@@ -35,7 +35,7 @@ const Login = () => {
             <img
             src={google}
             />
-            Sign in with Google
+            Login with Google
             </button>
             <div className="registerString">Not registered yet?</div>
             <Link to="/register" className="registerLink">

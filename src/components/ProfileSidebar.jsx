@@ -7,7 +7,7 @@ const ProfileSidebar = ({ showProfile }) => {
         <BiArrowToLeft onClick={(e) => showProfile()} />
       </div>
 
-      <Container className="--chat-container px-0">
+      <Container className="--profileSettings-container px-0">
         <div>
           <img alt="" src="/logo.svg" width="30" height="30" />
         </div>

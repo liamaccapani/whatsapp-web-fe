@@ -24,14 +24,20 @@
     justify-content: flex-end;
 }
 
+.chat-list, .message-list {
+    color: black;
+}
 
-/* PROFILE */
-.--chat-container {
+
+/* PROFILE -> not working properly */
+.--profileSettings-container {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
+
+/* MAIN CHAT */
 .--mainChat-nav-container {
     box-sizing: border-box;
     position: relative;
@@ -41,11 +47,25 @@
     justify-content: space-between;
 }
 
-.--chat-nav {
+.--mainChat-img-container {
     position: absolute;
 }
 
-.chat-list {
-    color: black;
-    margin-bottom: 10rem;
+/* .--mainChat-img {
+    width:100%;
+    height: 100%;
+    border-radius: 50%;
+} */
+
+
+.--mainChat-icons {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    right: 8px;
+    top: 20px;
+}
+
+.--textInput-container {
+    margin-bottom: 0;
 }

@@ -12,28 +12,21 @@ import {
   BsFillChatFill,
   BsFillExclamationCircleFill,
 } from "react-icons/bs";
-import ProfileSidebar from "./ProfileSidebar";
-// import Navbar from "./Navbar";
+import ChatList from "./ChatList"
 
-// 1) Show Navbar
 // 2) Show and Hide profile details
 // 3) Filter chats with query
 // 4) Fetch all chat history
 
-const Sidebar = () => {
+const Sidebar = ({ showProfile }) => {
   const [dropdown, setDropdown] = useState(false);
-  const [profile, setProfile] = useState(false);
-
-  const showProfile = (e) => {
-    setProfile(!profile);
-  };
 
   const toggleDropdown = (e) => {
     setDropdown(!dropdown);
   };
 
   return (
-    <Container className="--whole-sidebar py-2">
+    <Container className="--chat-sidebar py-3">
       <Container fluid className="--profile-navbar px-0 mb-4">
         <div>
           <img
@@ -45,7 +38,6 @@ const Sidebar = () => {
             onClick={(e) => showProfile()}
           />
         </div>
-        {profile && <ProfileSidebar />}
         <Container fluid className="--icons px-0">
           <span>
             <BsFillChatFill />
@@ -66,28 +58,14 @@ const Sidebar = () => {
                   Separated link
                 </NavDropdown.Item>
               </NavDropdown>
-
-              // <ListGroup className="my-2">
-              //   <ListGroup.Item>Hello</ListGroup.Item>
-              //   <ListGroup.Item>renders horizontally</ListGroup.Item>
-              //   <ListGroup.Item>on</ListGroup.Item>
-              //   <ListGroup.Item>and above!</ListGroup.Item>
-              // </ListGroup>
             )}
           </span>
         </Container>
       </Container>
       <hr />
+      <ChatList/>
     </Container>
   );
 };
 
 export default Sidebar;
-
-{
-  /* <InputGroup className="mb-3">
-        <FormControl placeholder="search user..." />
-      </InputGroup>
-      <hr/>
-      <div>Chats Component</div> */
-}

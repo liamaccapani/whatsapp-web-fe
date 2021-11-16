@@ -1,5 +1,5 @@
-.right-side .left-side {
-    height: 100%;
+.right-side, .left-side {
+    height: 100vh;
 }
 .right-side {
     background-color: rgb(40, 46, 43);
@@ -22,4 +22,12 @@
 .--icons {
     display: flex;
     justify-content: flex-end;
+}
+
+
+/* PROFILE */
+.--chat-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }

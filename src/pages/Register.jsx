@@ -26,7 +26,7 @@ const Register = () => {
             <Form.Control size="sm" type="text" placeholder="" />
           <Form.Label>Your email</Form.Label>
             <Form.Control size="sm" type="email" placeholder="" />
-            <Form.Label>Your password</Form.Label>
+            <Form.Label>Password</Form.Label>
             <Form.Control size="sm" type="password" placeholder="" />
           </Form.Group>
   

@@ -3,7 +3,7 @@ import {create, defaults} from "axios"
 const API = create({baseURL: "http://localhost:3001"})
 
 const refreshAccessToken = async () => {
-    const { data } = await API.post("/user/account", {
+    const { data } = await API.post("/user/login", {
         actualRefreshToken: localStorage.getItem("refreshToken")
     })
     localStorage.setItem("accessToken", data.accessToken)
@@ -31,7 +31,7 @@ API.interceptors.response.use(
         const failedRequest = error.config
         if(
             error.response.status === 401 &&
-            failedRequest.url !== "/user/account"
+            failedRequest.url !== "/user/login"
         ) {
             await refreshAccessToken()
             const retryRequest = API(failedRequest)

@@ -9,7 +9,7 @@ const Playground = () => {
 
     const login = async () => {
         const {data} = await API.post(
-            "/user/account",
+            "/user/login",
             {username, email, password},
             {method : "POST"}
         )

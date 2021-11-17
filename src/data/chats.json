@@ -1,0 +1,22 @@
+{
+    "_id": "1",
+    "members": [
+        {
+            "_id": "user1",
+            "username": "Gustavo Lapernica",
+            "email": "email@email.com",
+            "avatar": "https://memegenerator.net/img/images/72547267.jpg"
+        }
+    ],
+    "chatHistory": [
+        {
+            "_id": "history1",
+            "timestamp": 0,
+            "sender": "Roberto Scafroglia",
+            "content": {
+                "text": "hello there",
+                "media": "https://www.shutterstock.com/it/image-photo/bank-blocks-linked-money-by-lines-1937886058"
+            }
+        }
+    ]
+}

@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom'
 import './index.css'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
-import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'react-chat-elements/dist/main.css';
 import { Provider } from 'react-redux'
 import { configureStore, persistor } from '../src/redux/store'
 import { PersistGate } from 'redux-persist/integration/react'

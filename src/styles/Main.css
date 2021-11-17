@@ -1,0 +1,71 @@
+.right-side, .left-side {
+    height: 100vh;
+}
+.right-side {
+    background-color: rgb(40, 46, 43);
+    color: white;
+}
+
+.left-side {
+    background-color: rgb(58, 58, 58);
+    color: white;
+}
+
+
+/* SIDEBAR */
+.--profile-icons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.--icons {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.chat-list, .message-list {
+    color: black;
+}
+
+
+/* PROFILE -> not working properly */
+.--profileSettings-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+/* MAIN CHAT */
+.--mainChat-nav-container {
+    box-sizing: border-box;
+    position: relative;
+    height: 60px;
+    background-color: rgb(58, 58, 58);
+    display: flex;
+    justify-content: space-between;
+}
+
+.--mainChat-img-container {
+    position: absolute;
+}
+
+/* .--mainChat-img {
+    width:100%;
+    height: 100%;
+    border-radius: 50%;
+} */
+
+
+.--mainChat-icons {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    right: 8px;
+    top: 20px;
+}
+
+.--textInput-container {
+    margin-bottom: 0;
+}

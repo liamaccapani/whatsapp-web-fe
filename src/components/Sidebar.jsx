@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import {
   Container,
   Dropdown,
+  Form,
+  FormControl,
   ListGroup,
   Nav,
   NavDropdown,
@@ -13,6 +15,7 @@ import {
   BsFillExclamationCircleFill,
 } from "react-icons/bs";
 import ChatsLists from "./ChatsLists"
+// import { fetchChatsOfUser } from "../utilities/fetches.js"
 
 // 2) Show and Hide profile details
 // 3) Filter chats with query
@@ -20,6 +23,32 @@ import ChatsLists from "./ChatsLists"
 
 const Sidebar = ({ showProfile }) => {
   const [dropdown, setDropdown] = useState(false);
+  const [query, setQuery] = useState("");
+  const [chats, setChats] = useState([])
+  
+  const handleChange = (e) => {
+    setQuery(e.target.value);
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+  
+  const fetchChatsOfUser = async (userId) => {
+    try {
+      const res = await fetch(
+        "http://localhost:3001/chat/"+userId
+      );
+      if (res.ok) {
+        const data = await res.json();
+        setChats(data)
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  useEffect(()=>{
+    fetchChatsOfUser("619253f1a116e487f28419a4")
+  }, [])
 
   const toggleDropdown = (e) => {
     setDropdown(!dropdown);
@@ -27,6 +56,7 @@ const Sidebar = ({ showProfile }) => {
 
   return (
     <Container className="--chat-sidebar py-3 px-0">
+    {/* TOP NAVBAR PROFILE + ICONS/MENU */}
       <Container fluid className="--profile-icons px-3 mb-4">
         <div>
           <img
@@ -63,7 +93,22 @@ const Sidebar = ({ showProfile }) => {
         </Container>
       </Container>
       <hr />
-      <ChatsLists/>
+      {/* SEARCHBAR */}
+      <Container>
+        <Form className="mb-3" onSubmit={handleSubmit}>
+          <FormControl
+            type="search"
+            value={query}
+            onChange={handleChange}
+            placeholder="search user..."
+          />
+        </Form>
+      </Container>
+      <hr />
+      {/* CHATLISTS */}
+      {
+        chats.map(c=> <ChatsLists key={c._id} chat={c}/>)
+      }
     </Container>
   );
 };

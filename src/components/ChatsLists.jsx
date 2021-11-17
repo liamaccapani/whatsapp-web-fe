@@ -11,26 +11,8 @@ import chats from "../data/chats.json";
 import { ChatList } from "react-chat-elements";
 
 const ChatsLists = () => {
-  const [query, setQuery] = useState("");
-  const handleChange = (e) => {
-    setQuery(e.target.value);
-  };
-  const handleSubmit = (e) => {
-    e.preventDefault();
-  };
   return (
     <>
-      <Container>
-        <Form className="mb-3" onSubmit={handleSubmit}>
-          <FormControl
-            type="search"
-            value={query}
-            onChange={handleChange}
-            placeholder="search user..."
-          />
-        </Form>
-      </Container>
-      <hr />
       <div className="--chatlist">
         {
           <ChatList

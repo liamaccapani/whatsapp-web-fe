@@ -3,6 +3,8 @@ import { BiArrowToLeft } from "react-icons/bi";
 import { BsFillPencilFill } from "react-icons/bs";
 import AvatarDefault from "../styles/default-avatar.png";
 
+// FETCH users/me
+
 const ProfileSidebar = ({ showProfile }) => {
   return (
     <Container className="--profile-sidebar py-3 px-0">

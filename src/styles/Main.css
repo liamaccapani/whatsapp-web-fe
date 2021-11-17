@@ -74,13 +74,15 @@ span.name, span.status {
     color: var(--green-text);
     font-size: .8rem;
     font-weight: bold;
+    padding-left: 4px;
 }
 
 div.name, div.status {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-weight: bold;
+    padding-left: 4px;
+    /* font-weight: bold; */
     font-size: 1rem;
     width: 100%;
     box-shadow: 0px 2.5px black;
@@ -88,6 +90,7 @@ div.name, div.status {
 
 .pencil {
     font-size: .9rem;
+    /* padding-right: 2px; */
 }
 
 /* ------------------- MAIN CHAT */

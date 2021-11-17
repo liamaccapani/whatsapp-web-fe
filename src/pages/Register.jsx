@@ -72,11 +72,11 @@ const Register = () => {
           <button className="registerButton"
         onClick={login}>  Login  </button>
   
-          <button className="googleButton">
-              <img
-              src={google} />
-              Sign in with Google
-              </button>
+        <a href="http://localhost:3001/user/googleLogin">
+        <button className="googleButton">
+          <img src={google} />
+          Sign with Google
+        </button></a>
             
               <Link to="/" className="registerLink">
               <button className="backToLoginButton">Go back to login!</button>

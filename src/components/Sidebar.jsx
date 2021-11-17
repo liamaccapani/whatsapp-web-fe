@@ -15,6 +15,7 @@ import {
   BsFillExclamationCircleFill,
 } from "react-icons/bs";
 import ChatsLists from "./ChatsLists"
+import AvatarDefault from "../styles/default-avatar.png"
 // import { fetchChatsOfUser } from "../utilities/fetches.js"
 
 // 2) Show and Hide profile details
@@ -55,16 +56,13 @@ const Sidebar = ({ showProfile }) => {
   };
 
   return (
-    <Container className="--chat-sidebar py-3 px-0">
+    <Container className="--chat-sidebar py-0 px-0">
     {/* TOP NAVBAR PROFILE + ICONS/MENU */}
       <Container fluid className="--profile-icons px-3 mb-4">
-        <div>
+        <div className="profileImg-small">
           <img
-            alt=""
-            src="/logo.svg"
-            width="30"
-            height="30"
-            className="d-inline-block align-top"
+            alt="avatar"
+            src={AvatarDefault}
             onClick={(e) => showProfile()}
           />
         </div>

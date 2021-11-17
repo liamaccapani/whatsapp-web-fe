@@ -1,24 +1,40 @@
 import { Col, Container, ListGroup, Row } from "react-bootstrap";
 import { BiArrowToLeft } from "react-icons/bi";
+import { BsFillPencilFill } from "react-icons/bs";
+import AvatarDefault from "../styles/default-avatar.png";
+
 const ProfileSidebar = ({ showProfile }) => {
   return (
-    <Container className="--profile-sidebar py-3">
-      <div className="arrow-left">
+    <Container className="--profile-sidebar py-3 px-0">
+      <div className="arrow-left pl-3">
         <BiArrowToLeft onClick={(e) => showProfile()} />
       </div>
 
       <Container className="--profileSettings-container px-0">
-        <div>
-          <img alt="" src="/logo.svg" width="30" height="30" />
+        <div className="profileImg-large my-5">
+          {/* src logic: user.avatar ? user.avatar : AvatarDefault */}
+          {/*  also -> onClick = change Img */}
+          <img alt="avatar" src={AvatarDefault} />
         </div>
-  
-        <ListGroup>
-          <ListGroup.Item variant="secondary">Name</ListGroup.Item>
-        </ListGroup>
-  
-        <ListGroup>
-          <ListGroup.Item variant="secondary">Status</ListGroup.Item>
-        </ListGroup>
+
+        <div className="--nameStatus-container">
+          <span className="name d-inline-block mb-2">Name</span>
+          <div className="name">
+            Roberto
+            <BsFillPencilFill 
+              // onClick={} 
+              className="pencil" 
+            />
+          </div>
+          <span className="status d-inline-block mt-4 mb-2">Status</span>
+          <div className="status">
+            Busy, call my agent.
+            <BsFillPencilFill 
+              // onClick={} 
+              className="pencil" 
+            />
+          </div>
+        </div>
       </Container>
     </Container>
   );

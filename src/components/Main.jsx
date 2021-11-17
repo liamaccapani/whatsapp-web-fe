@@ -5,10 +5,12 @@ import "../styles/Main.css";
 import Sidebar from "./Sidebar";
 import ChatMain from "./ChatMain";
 import ProfileSidebar from "./ProfileSidebar"
+import { useSelector } from "react-redux";
 
 const Main = () => {
   const [isProfile, setIsProfile] = useState(false)
-
+  const data = useSelector((s) => s.data);
+  console.log(data)
   const showProfile = (e) => {
     setIsProfile(!isProfile)
   }

@@ -11,6 +11,16 @@ const refreshAccessToken = async () => {
     return data
 }
 
+const registerTokens = async () => {
+    const { data } = await API.post("/user/account", {
+        actualAcessToken: localStorage.getItem("accessToken"),
+        actualRefreshToken: localStorage.getItem("refreshToken")
+    })
+    localStorage.setItem("accessToken", data.accessToken)
+    localStorage.setItem("refreshToken", data.refreshToken)
+    return data
+}
+
 API.interceptors.request.use(
     async (config) => {
         const accessToken = localStorage.getItem("accessToken")
@@ -34,6 +44,7 @@ API.interceptors.response.use(
             failedRequest.url !== "/user/login"
         ) {
             await refreshAccessToken()
+            await registerTokens()
             const retryRequest = API(failedRequest)
             return retryRequest
         } else {

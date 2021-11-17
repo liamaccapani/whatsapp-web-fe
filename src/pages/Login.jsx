@@ -76,7 +76,7 @@ const Login = () => {
           
         <button className="googleButton">
           <img src={google} />
-          Login with Google
+          Sign in with Google
         </button>
         <div className="registerString">Not registered yet?</div>
         <Link to="/register" className="registerLink">

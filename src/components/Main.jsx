@@ -1,14 +1,28 @@
 import { Col, Container, Row } from "react-bootstrap";
 import { useState, useEffect } from "react"
 import { Link } from "react-router-dom";
+import { io } from 'socket.io-client'
 import "../styles/Main.css";
 import Sidebar from "./Sidebar";
 import ChatMain from "./ChatMain";
 import ProfileSidebar from "./ProfileSidebar"
 import { useSelector } from "react-redux";
 
+const ADDRESS = 'http://localhost:3001'
+const socket = io(ADDRESS, { transports: ['websocket'] })
+
+
+
 const Main = () => {
   const [isProfile, setIsProfile] = useState(false)
+
+  useEffect(() => {
+    
+    socket.on('connect', () => {
+      
+      console.log('Connection established!')
+    })
+  })
 
   const user = useSelector((s) => s.userInfo);
   console.log("from Main", user)

@@ -8,7 +8,7 @@ import API from "../tools/api";
 import { useHistory } from "react-router";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { fetchData } from "../redux/actions";
+import { setUserInfo } from "../redux/actions";
 import {create, defaults} from "axios"
 
 const Login = () => {
@@ -44,6 +44,7 @@ const Login = () => {
     const { data } = await API.get("/user/me");
     console.log("me", data);
     if(data){
+      dispatch(setUserInfo(data))
       history.push("/main")
     }
   };

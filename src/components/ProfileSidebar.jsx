@@ -2,10 +2,14 @@ import { Col, Container, ListGroup, Row } from "react-bootstrap";
 import { BiArrowToLeft } from "react-icons/bi";
 import { BsFillPencilFill } from "react-icons/bs";
 import AvatarDefault from "../styles/default-avatar.png";
+import { useSelector } from "react-redux";
 
 // FETCH users/me
 
 const ProfileSidebar = ({ showProfile }) => {
+  const user = useSelector((s) => s.userInfo);
+  console.log("from Main", user)
+
   return (
     <Container className="--profile-sidebar py-3 px-0">
       <div className="arrow-left pl-3">
@@ -23,7 +27,7 @@ const ProfileSidebar = ({ showProfile }) => {
           <span className="name d-inline-block mb-2">Name</span>
           <div className="name">
             {/* /me => user. username */}
-            Roberto
+            {user.username}
             <BsFillPencilFill 
               // onClick={} 
               className="pencil" 

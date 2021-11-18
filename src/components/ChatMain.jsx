@@ -3,6 +3,7 @@ import { MessageList, Input, Button } from "react-chat-elements";
 import AvatarDefault from "../styles/default-avatar.png"
 
 const ChatMain = () => {
+
   return (
     <>
       {/* NAVBAR TOP */}

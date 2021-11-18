@@ -26,11 +26,11 @@ const Login = () => {
   const data = useSelector((s) => s.data);
   console.log("current redux data",data);
 
-  const URL = create({baseURL: "http://localhost:3001"})
+  // const URL = create({baseURL: "http://localhost:3001"})
 
   const login = async () => {
-    const { data } = await URL.post(
-      "/user/account",
+    const { data } = await API.post(
+      "/user/login",
       { username, email, password },
       { method: "POST" }
     );

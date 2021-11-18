@@ -45,9 +45,6 @@ const Login = () => {
     console.log("me", data);
     if(data){
       history.push("/main")
-      // const redirect = path + "main"
-      // console.log("redirect",redirect)
-      // setQuery(redirect)
     }
   };
   

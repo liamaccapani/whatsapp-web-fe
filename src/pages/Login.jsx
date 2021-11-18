@@ -5,12 +5,24 @@ import google from "../styles/google.png";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import API from "../tools/api";
+import { useHistory } from "react-router";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { fetchData } from "../redux/actions";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
-
+  const [query, setQuery] = useState("")
+  const history = useHistory()
+  console.log(history)
+  const dispatch = useDispatch()
+  const path =  history.location.pathname
+  console.log(path)
+  console.log("query",query)
+  const data = useSelector((s) => s.data);
+  console.log("current redux data",data);
   const login = async () => {
     const { data } = await API.post(
       "/user/login",
@@ -20,11 +32,21 @@ const Login = () => {
     console.log("data post req", data);
     localStorage.setItem("accessToken", data.accessToken);
     localStorage.setItem("refreshToken", data.refreshToken);
+    getUserInfo()
+    
   };
+
   const getUserInfo = async () => {
     const { data } = await API.get("/user/me");
     console.log("me", data);
+    if(data){
+      const redirect = path + "main/" + data._id
+      console.log("redirect",redirect)
+      setQuery(redirect)
+      dispatch(fetchData("http://localhost:3001/user/me"))
+    }
   };
+  
   return (
     <div>
       <Navbar className="navBar_login">
@@ -70,10 +92,11 @@ const Login = () => {
           onChange={(e) => setPassword(e.currentTarget.value)}
           />
         </Form.Group>
-
+        <Link to={query}>
         <button className="registerButton"
-        onClick={login}>  Login  </button>
-        <a  href="http://localhost:3001/user/googleLogin">
+        onClick={login, getUserInfo}>  Login  </button>
+        </Link>
+        <a href="http://localhost:3001/user/googleLogin">
         <button className="googleButton">
           <img src={google} />
           Sign with Google

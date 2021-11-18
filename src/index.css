@@ -1,4 +1,4 @@
-body {
+/* body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -6,6 +6,11 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color:#090E11 !important;
+} */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;300&display=swap');
+
+body {
+  font-family: 'Inter', sans-serif;
 }
 
 code {

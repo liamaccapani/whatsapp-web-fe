@@ -25,15 +25,7 @@ const ChatsLists = () => {
                 subtitle: `${chats.chatHistory[0].content.text}`,
                 date: `${chats.chatHistory[0].timestamp}`,
                 unread: 3,
-              },
-              {
-                avatar: `${chats.members[0].avatar}`,
-                alt: "old man meme",
-                title: `${chats.chatHistory[0].sender}`,
-                subtitle: `${chats.chatHistory[0].content.text}`,
-                date: `${chats.chatHistory[0].timestamp}`,
-                unread: 3,
-              },
+              }
             ]}
           />
         }

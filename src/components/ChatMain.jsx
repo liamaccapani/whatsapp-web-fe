@@ -1,18 +1,17 @@
 import { BsThreeDotsVertical, BsSearch } from "react-icons/bs";
 import { MessageList, Input, Button } from "react-chat-elements";
+import AvatarDefault from "../styles/default-avatar.png"
 
 const ChatMain = () => {
   return (
     <>
       {/* NAVBAR TOP */}
-      <div className="--mainChat-nav-container py-3">
-        <div className="--mainChat-img-container">
+      <div className="--mainChat-nav-container px-2 py-3">
+        <div className="--mainChat-img-small">
           <img
-            alt=""
-            src="/logo.svg"
-            width="30"
-            height="30"
-            className="--mainChat-img d-inline-block align-top ml-3"
+            alt="avatar"
+            src={AvatarDefault}
+            className="d-inline-block align-top"
           />
         </div>
       </div>
@@ -28,13 +27,14 @@ const ChatMain = () => {
         toBottomHeight={"100%"}
         dataSource={[
           {
+            //add logic own ? left : right
             position: "right",
             type: "text",
             text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
             date: new Date(),
           },
           {
-            position: "LEFT",
+            position: "left",
             type: "text",
             text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
             date: new Date(),

@@ -22,6 +22,7 @@ const ProfileSidebar = ({ showProfile }) => {
         <div className="--nameStatus-container">
           <span className="name d-inline-block mb-2">Name</span>
           <div className="name">
+            {/* /me => user. username */}
             Roberto
             <BsFillPencilFill 
               // onClick={} 
@@ -30,9 +31,10 @@ const ProfileSidebar = ({ showProfile }) => {
           </div>
           <span className="status d-inline-block mt-4 mb-2">Status</span>
           <div className="status">
+            {/* /me => user.status */}
             Busy, call my agent.
             <BsFillPencilFill 
-              // onClick={} 
+              // onClick={edit} 
               className="pencil" 
             />
           </div>

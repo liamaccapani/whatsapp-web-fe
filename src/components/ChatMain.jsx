@@ -27,13 +27,14 @@ const ChatMain = () => {
         toBottomHeight={"100%"}
         dataSource={[
           {
+            //add logic own ? left : right
             position: "right",
             type: "text",
             text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
             date: new Date(),
           },
           {
-            position: "LEFT",
+            position: "left",
             type: "text",
             text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
             date: new Date(),

@@ -34,22 +34,22 @@ const Sidebar = ({ showProfile }) => {
     e.preventDefault();
   };
   
-  const fetchChatsOfUser = async (userId) => {
-    try {
-      const res = await fetch(
-        "http://localhost:3001/chat/"+userId
-      );
-      if (res.ok) {
-        const data = await res.json();
-        setChats(data)
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
-  useEffect(()=>{
-    fetchChatsOfUser("619253f1a116e487f28419a4")
-  }, [])
+  // const fetchChatsOfUser = async (userId) => {
+  //   try {
+  //     const res = await fetch(
+  //       "http://localhost:3001/chat/"+userId
+  //     );
+  //     if (res.ok) {
+  //       const data = await res.json();
+  //       setChats(data)
+  //     }
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+  // useEffect(()=>{
+  //   fetchChatsOfUser("619253f1a116e487f28419a4")
+  // }, [])
 
   const toggleDropdown = (e) => {
     setDropdown(!dropdown);

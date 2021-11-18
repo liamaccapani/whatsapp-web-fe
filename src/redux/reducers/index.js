@@ -1,10 +1,10 @@
-// import { ACTIONS } from '../actions'
+import { SET_USER_INFO } from '../actions'
 import { initialState } from '../store'
 
-export const reducer = (state = initialState.userInfo, action) => {
+export const reducer = (state = initialState, action) => {
     const { type, payload } = action;
-    switch (type) {
-        case "FETCH_DATA":
+    switch (action.type) {
+        case SET_USER_INFO:
             return {
                 ...state,
                 userInfo: payload,

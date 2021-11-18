@@ -11,15 +11,13 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
   
-  const login = async () => {
+  const register = async () => {
     const { data } = await API.post(
       "/user/account",
       { username, email, password },
       { method: "POST" }
     );
     console.log("data post req", data);
-    localStorage.setItem("accessToken", data.accessToken);
-    localStorage.setItem("refreshToken", data.refreshToken);
   };
   const getUserInfo = async () => {
     const { data } = await API.get("/user/me");
@@ -70,7 +68,7 @@ const Register = () => {
           </Form.Group>
 
           <button className="registerButton"
-        onClick={login}>  Login  </button>
+        onClick={register}>  Create Account  </button>
   
         <a href="http://localhost:3001/user/googleLogin">
         <button className="googleButton">

@@ -10,8 +10,10 @@ import { useSelector } from "react-redux";
 const Main = () => {
   const [isProfile, setIsProfile] = useState(false)
 
-  const data = useSelector((s) => s.data);
-  console.log(data)
+  const user = useSelector((s) => s.userInfo);
+  console.log("from Main", user)
+
+  // const dispatch = useDispatch()
   
   const showProfile = (e) => {
     setIsProfile(!isProfile)

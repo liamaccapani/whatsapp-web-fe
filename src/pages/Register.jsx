@@ -18,8 +18,8 @@ const Register = () => {
       { method: "POST" }
     );
     console.log("data post req", data);
-    localStorage.setItem("accessToken", data.accessToken);
-    localStorage.setItem("refreshToken", data.refreshToken);
+    // localStorage.setItem("accessToken", data.accessToken);
+    // localStorage.setItem("refreshToken", data.refreshToken);
   };
   const getUserInfo = async () => {
     const { data } = await API.get("/user/me");

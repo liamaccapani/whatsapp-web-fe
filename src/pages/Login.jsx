@@ -21,8 +21,8 @@ const Login = () => {
   console.log(history)
   const dispatch = useDispatch()
   const path =  history.location.pathname
-  console.log(path)
-  console.log("query",query)
+  console.log("path!!", path)
+  console.log("query", query)
   const data = useSelector((s) => s.data);
   console.log("current redux data",data);
 
@@ -30,7 +30,7 @@ const Login = () => {
 
   const login = async () => {
     const { data } = await URL.post(
-      "/user/account",
+      "/user/session",
       { username, email, password },
       { method: "POST" }
     );
@@ -44,9 +44,10 @@ const Login = () => {
     const { data } = await API.get("/user/me");
     console.log("me", data);
     if(data){
-      const redirect = path + "main/" + data._id
-      console.log("redirect",redirect)
-      setQuery(redirect)
+      history.push("/main")
+      // const redirect = path + "main"
+      // console.log("redirect",redirect)
+      // setQuery(redirect)
     }
   };
   
@@ -97,7 +98,7 @@ const Login = () => {
         </Form.Group>
         <Link to={query}>
         <button className="registerButton"
-        onClick={login, getUserInfo}>  Login  </button>
+        onClick={(e)=> login()}>  Login  </button>
         </Link>
         <a href="http://localhost:3001/user/googleLogin">
         <button className="googleButton">

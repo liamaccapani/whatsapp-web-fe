@@ -76,16 +76,9 @@ const Sidebar = ({ showProfile }) => {
           <span className="ml-3">
             <BsThreeDotsVertical onClick={(e) => toggleDropdown()} />
             {dropdown && (
-              <NavDropdown className="my-2">
-                <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.2">
-                  Another action
-                </NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item href="#action/3.4">
-                  Logout
-                </NavDropdown.Item>
-              </NavDropdown>
+            
+                <div className="loginDropDown">Logout</div>
+              
             )}
           </span>
         </Container>

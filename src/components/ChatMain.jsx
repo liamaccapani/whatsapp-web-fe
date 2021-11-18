@@ -23,7 +23,7 @@ const ChatMain = () => {
 
       {/* MAIN CHAT BALOONS */}
       <MessageList
-        className="message-list my-2"
+        className="message-list"
         lockable={true}
         toBottomHeight={"100%"}
         dataSource={[
@@ -44,7 +44,7 @@ const ChatMain = () => {
       />
 
       {/* BOTTOM TEXT INPUT FIELD */}
-      <div className="--textInput-container mx-1">
+      <div className="--textInput-container">
         <Input
           placeholder="Type here..."
           multiline={true}

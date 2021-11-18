@@ -22,7 +22,9 @@
     background-color: var(--sidebar-color);
 }
 
-
+.whole-container{
+    height: 100vh;
+}
 /* ------------------- SIDEBAR */
 .--profile-icons {
     height: 60px;
@@ -36,13 +38,28 @@
 .--icons {
     display: flex;
     justify-content: flex-end;
+    z-index: 0;
 }
 
 .chat-list, .message-list {
     color: black;
 }
 
-
+.loginDropDown{
+    height: 40px;
+    width: 80px;
+    background-color: #252525;
+    display: flex;
+    margin-top: -26px;
+    margin-left: 20px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2px;
+}
+.loginDropDown:hover{
+    background-color: #04040491;
+    cursor: pointer;
+}
 /* ------------------- PROFILE */
 .arrow-left {
     font-size: 1.5rem;
@@ -118,8 +135,8 @@ div.name, div.status {
     top: 20px;
 }
 
-.--textInput-container {
-    margin-bottom: 0;
+.message-list{
+    height: 88%;
 }
 
 /* ------------------- SMALL IMAGES SIDEBAR AND MAINCHAT */

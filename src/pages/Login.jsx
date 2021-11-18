@@ -9,12 +9,14 @@ import { useHistory } from "react-router";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { fetchData } from "../redux/actions";
+import {create, defaults} from "axios"
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
   const [query, setQuery] = useState("")
+
   const history = useHistory()
   console.log(history)
   const dispatch = useDispatch()
@@ -23,9 +25,12 @@ const Login = () => {
   console.log("query",query)
   const data = useSelector((s) => s.data);
   console.log("current redux data",data);
+
+  const URL = create({baseURL: "http://localhost:3001"})
+
   const login = async () => {
-    const { data } = await API.post(
-      "/user/login",
+    const { data } = await URL.post(
+      "/user/account",
       { username, email, password },
       { method: "POST" }
     );
@@ -33,7 +38,6 @@ const Login = () => {
     localStorage.setItem("accessToken", data.accessToken);
     localStorage.setItem("refreshToken", data.refreshToken);
     getUserInfo()
-    
   };
 
   const getUserInfo = async () => {
@@ -43,7 +47,6 @@ const Login = () => {
       const redirect = path + "main/" + data._id
       console.log("redirect",redirect)
       setQuery(redirect)
-      dispatch(fetchData("http://localhost:3001/user/me"))
     }
   };
   
@@ -99,7 +102,7 @@ const Login = () => {
         <a href="http://localhost:3001/user/googleLogin">
         <button className="googleButton">
           <img src={google} />
-          Sign with Google
+          Sign in with Google
         </button></a>
         <div className="registerString">Not registered yet?</div>
         <Link to="/register" className="registerLink">

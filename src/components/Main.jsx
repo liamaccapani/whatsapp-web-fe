@@ -9,8 +9,10 @@ import { useSelector } from "react-redux";
 
 const Main = () => {
   const [isProfile, setIsProfile] = useState(false)
+
   const data = useSelector((s) => s.data);
   console.log(data)
+  
   const showProfile = (e) => {
     setIsProfile(!isProfile)
   }

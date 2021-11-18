@@ -12,7 +12,7 @@ const refreshAccessToken = async () => {
 }
 
 const registerTokens = async () => {
-    const { data } = await API.post("/user/account", {
+    const { data } = await API.post("/user/login", {
         actualAcessToken: localStorage.getItem("accessToken"),
         actualRefreshToken: localStorage.getItem("refreshToken")
     })

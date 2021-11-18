@@ -9,6 +9,7 @@ import { useHistory } from "react-router";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { fetchData } from "../redux/actions";
+import {create, defaults} from "axios"
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -25,9 +26,11 @@ const Login = () => {
   const data = useSelector((s) => s.data);
   console.log("current redux data",data);
 
+  const URL = create({baseURL: "http://localhost:3001"})
+
   const login = async () => {
-    const { data } = await API.post(
-      "/user/login",
+    const { data } = await URL.post(
+      "/user/account",
       { username, email, password },
       { method: "POST" }
     );

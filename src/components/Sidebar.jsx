@@ -14,8 +14,8 @@ import {
   BsFillChatFill,
   BsFillExclamationCircleFill,
 } from "react-icons/bs";
-import ChatsLists from "./ChatsLists"
-import AvatarDefault from "../styles/default-avatar.png"
+import ChatsLists from "./ChatsLists";
+import AvatarDefault from "../styles/default-avatar.png";
 // import { fetchChatsOfUser } from "../utilities/fetches.js"
 
 // 2) Show and Hide profile details
@@ -25,15 +25,15 @@ import AvatarDefault from "../styles/default-avatar.png"
 const Sidebar = ({ showProfile }) => {
   const [dropdown, setDropdown] = useState(false);
   const [query, setQuery] = useState("");
-  const [chats, setChats] = useState([])
-  
+  const [chats, setChats] = useState([]);
+
   const handleChange = (e) => {
     setQuery(e.target.value);
   };
   const handleSubmit = (e) => {
     e.preventDefault();
   };
-  
+
   // const fetchChatsOfUser = async (userId) => {
   //   try {
   //     const res = await fetch(
@@ -57,7 +57,7 @@ const Sidebar = ({ showProfile }) => {
 
   return (
     <Container className="--chat-sidebar py-0 px-0">
-    {/* TOP NAVBAR PROFILE + ICONS/MENU */}
+      {/* TOP NAVBAR PROFILE + ICONS/MENU */}
       <Container fluid className="--profile-icons px-3 mb-4">
         <div className="profileImg-small">
           <img
@@ -82,9 +82,7 @@ const Sidebar = ({ showProfile }) => {
                   Another action
                 </NavDropdown.Item>
                 <NavDropdown.Divider />
-                <NavDropdown.Item href="#action/3.4">
-                  Logout
-                </NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.4">Logout</NavDropdown.Item>
               </NavDropdown>
             )}
           </span>
@@ -104,9 +102,9 @@ const Sidebar = ({ showProfile }) => {
       </Container>
       <hr />
       {/* CHATLISTS */}
-      {
-        chats.map(c=> <ChatsLists key={c._id} chat={c}/>)
-      }
+      {chats.map((c) => (
+        <ChatsLists key={c._id} chat={c} />
+      ))}
     </Container>
   );
 };

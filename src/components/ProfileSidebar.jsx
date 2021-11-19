@@ -3,12 +3,15 @@ import { BiArrowToLeft } from "react-icons/bi";
 import { BsFillPencilFill } from "react-icons/bs";
 import AvatarDefault from "../styles/default-avatar.png";
 import { useSelector } from "react-redux";
+import { useState } from "react";
+import updateProfileAvatar from "./updateProfileAvatar";
 
 // FETCH users/me
 
 const ProfileSidebar = ({ showProfile }) => {
   const user = useSelector((s) => s.userInfo);
-  console.log("from Main", user)
+  console.log("from Main", user);
+  const [updateAvatar, setUpdateAvatar] = useState(false);
 
   return (
     <Container className="--profile-sidebar py-3 px-0">
@@ -20,7 +23,11 @@ const ProfileSidebar = ({ showProfile }) => {
         <div className="profileImg-large my-5">
           {/* src logic: user.avatar ? user.avatar : AvatarDefault */}
           {/*  also -> onClick = change Img */}
-          <img alt="avatar" src={AvatarDefault} />
+          <img
+            alt="avatar"
+            onClick={() => setUpdateAvatar(!updateAvatar)}
+            src={AvatarDefault}
+          />
         </div>
 
         <div className="--nameStatus-container">
@@ -28,18 +35,18 @@ const ProfileSidebar = ({ showProfile }) => {
           <div className="name">
             {/* /me => user. username */}
             {user.username}
-            <BsFillPencilFill 
-              // onClick={} 
-              className="pencil" 
+            <BsFillPencilFill
+              // onClick={}
+              className="pencil"
             />
           </div>
           <span className="status d-inline-block mt-4 mb-2">Status</span>
           <div className="status">
             {/* /me => user.status */}
             Busy, call my agent.
-            <BsFillPencilFill 
-              // onClick={edit} 
-              className="pencil" 
+            <BsFillPencilFill
+              // onClick={edit}
+              className="pencil"
             />
           </div>
         </div>

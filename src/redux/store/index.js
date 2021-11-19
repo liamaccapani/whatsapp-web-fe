@@ -28,7 +28,7 @@ const persistConfig = {
   storage: localStorage,
   transforms: [
     encryptTransform({
-      secretKey: process.env.REACT_APP_SECRET_KEY,
+      secretKey: "vinay",
       onError: (error) => {
         console.log(error);
       },
@@ -44,6 +44,6 @@ const configureStore = createStore(
   composeEnhancers(applyMiddleware(thunk))
 );
 
-const persistor = persistStore(configureStore)
+const persistor = persistStore(configureStore);
 
-export { configureStore, persistor }
+export { configureStore, persistor };

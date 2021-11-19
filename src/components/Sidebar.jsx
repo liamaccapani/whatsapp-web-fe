@@ -18,6 +18,8 @@ import {create, defaults} from "axios"
 import ChatsLists from "./ChatsLists"
 import AvatarDefault from "../styles/default-avatar.png"
 import API from "../tools/api";
+import { useDispatch } from "react-redux";
+import { setUserInfo } from "../redux/actions";
 // import { fetchChatsOfUser } from "../utilities/fetches.js"
 
 // 2) Show and Hide profile details
@@ -28,7 +30,7 @@ const Sidebar = ({ showProfile }) => {
   const [dropdown, setDropdown] = useState(false);
   const [query, setQuery] = useState("");
   const [chats, setChats] = useState([])
-  
+  const dispatch = useDispatch()
   const handleChange = (e) => {
     setQuery(e.target.value);
   };
@@ -53,19 +55,28 @@ const Sidebar = ({ showProfile }) => {
   // useEffect(()=>{
   //   fetchChatsOfUser("619253f1a116e487f28419a4")
   // }, [])
+
   const URL = create({baseURL: "http://localhost:3001"})
   const getUsers = async () =>{
     const {data} = await API.get(
-      URL+ "/user?username=" + query
+      "http://localhost:3001/user?username=" + query
     )
     console.log("users that i'm looking for",data )
     setQuery(data)
-    console.log("query", query)
+    dispatch(setUserInfo(data))
   }
 
   const toggleDropdown = (e) => {
     setDropdown(!dropdown);
   };
+ 
+  const logout = async () => {
+  const fetchLogout = await API.delete()
+  }
+  const handleLogout = (e) => {
+    e.preventDefault();
+    logout()
+  }
 
   return (
     <Container className="--chat-sidebar py-0 px-0">
@@ -76,7 +87,7 @@ const Sidebar = ({ showProfile }) => {
             alt="avatar"
             src={AvatarDefault}
             onClick={(e) => showProfile()}
-          />
+          /> 
         </div>
         <Container fluid className="--icons px-0">
           <span>
@@ -89,7 +100,7 @@ const Sidebar = ({ showProfile }) => {
             <BsThreeDotsVertical onClick={(e) => toggleDropdown()} />
             {dropdown && (
             
-                <div className="loginDropDown">Logout</div>
+                <div className="loginDropDown" onSubmit={handleLogout}>Logout</div>
               
             )}
           </span>
@@ -109,9 +120,9 @@ const Sidebar = ({ showProfile }) => {
       </Container>
       <hr />
       {/* CHATLISTS */}
-      {
-        chats.map(c=> <ChatsLists key={c._id} chat={c}/>)
-      }
+      
+        <ChatsLists/>
+      
     </Container>
   );
 };

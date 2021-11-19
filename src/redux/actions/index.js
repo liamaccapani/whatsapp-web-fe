@@ -1,5 +1,6 @@
 export const SET_USER_INFO = "SET_USER_INFO";
 export const FETCH_DATA = "FETCH_DATA";
+export const SET_CHAT_INFO = "SET_CHAT_INFO";
 
 export const setUserInfo = (user) => {
   return {
@@ -7,6 +8,13 @@ export const setUserInfo = (user) => {
     payload: user,
   };
 };
+export const setChats = (chat) => {
+  return {
+    type: SET_CHAT_INFO,
+    payload: chat,
+  };
+};
+
 
 export const fetchData = (url) => {
   return async (dispatch, getState) => {

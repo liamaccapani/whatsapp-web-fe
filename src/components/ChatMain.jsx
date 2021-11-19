@@ -1,8 +1,40 @@
 import { BsThreeDotsVertical, BsSearch } from "react-icons/bs";
 import { MessageList, Input, Button } from "react-chat-elements";
-import AvatarDefault from "../styles/default-avatar.png"
+import AvatarDefault from "../styles/default-avatar.png";
+import API from "../tools/api";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { setChats } from "../redux/actions";
+import { useEffect, useState } from "react";
 
 const ChatMain = () => {
+  const chatstate = useSelector((s) => s.chats);
+  console.log("chat state", chatstate);
+
+  const userstate = useSelector((s) => s.userInfo);
+  console.log("userstate", userstate);
+  const dispatch = useDispatch();
+
+  // const [chat, setChat] = useState([]);
+
+  const getChatHistory = async () => {
+    try {
+      const response = await fetch(
+        "http://localhost:3001/messages/" + "61967e0a1e32026c699f741e"
+      );
+      const res = await response.json();
+      // setChat(res);
+      dispatch(setChats(res))
+      console.log("res", res);
+      return res;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+ 
+  useEffect(() => {
+   getChatHistory()
+  }, [])
 
   return (
     <>
@@ -31,7 +63,7 @@ const ChatMain = () => {
             //add logic own ? left : right
             position: "right",
             type: "text",
-            text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+            text: `${chatstate.text}`,
             date: new Date(),
           },
           {

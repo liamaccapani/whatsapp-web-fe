@@ -1,4 +1,4 @@
-import { SET_USER_INFO, FETCH_DATA } from '../actions'
+import { SET_USER_INFO, FETCH_DATA, SET_CHAT_INFO } from '../actions'
 import { initialState } from '../store'
 
 export const reducer = (state = initialState, action) => {
@@ -8,6 +8,11 @@ export const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 userInfo: payload,
+            };
+            case SET_CHAT_INFO:
+            return {
+                ...state,
+                chats: payload,
             };
             case FETCH_DATA:
                 return {

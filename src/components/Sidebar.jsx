@@ -45,9 +45,10 @@ const Sidebar = ({ showProfile }) => {
       );
       if (res.ok) {
         const data = await res.json();
+        console.log("CHATS FROM FETCH", data)
         setChats(data)
-        console.log(chats)
-        console.log(userId)
+        console.log("CHATS SETTED HOOK", chats)
+        // console.log(userId)
       }
     } catch (error) {
       console.log(error);

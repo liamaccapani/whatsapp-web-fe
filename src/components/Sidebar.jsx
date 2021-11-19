@@ -46,22 +46,25 @@ const Sidebar = ({ showProfile }) => {
   const fetchChatsOfUser = async (userId) => {
     try {
       const res = await fetch(
-        "http://localhost:3001/chat/"+userId
+        "http://localhost:3001/chat/"+ userId
       );
       if (res.ok) {
         const data = await res.json();
-        console.log("CHATS FROM FETCH", data)
+        
         // setChats(data)
         // console.log("CHATS SETTED HOOK", chats)
         // console.log(userId)
         dispatch(setConversations(data))
+        console.log("CHATS FROM FETCH", data)
       }
     } catch (error) {
       console.log(error);
     }
   };
+
   useEffect(()=>{
     fetchChatsOfUser(user._id)
+    console.log("user id",user._id)
   }, [])
 
   const toggleDropdown = (e) => {
@@ -120,7 +123,8 @@ const Sidebar = ({ showProfile }) => {
       {/* {
         conversations.map(conversation=> <ChatsLists userId={user._id}/>)
       } */}
-      <ChatsLists />
+      {conversations.map(c => <ChatsLists />)}
+     
     </Container>
   );
 };

@@ -1,5 +1,6 @@
 // import { Container, FormControl, InputGroup } from "react-bootstrap";
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import {
   Container,
   Dropdown,
@@ -26,6 +27,9 @@ const Sidebar = ({ showProfile }) => {
   const [dropdown, setDropdown] = useState(false);
   const [query, setQuery] = useState("");
   const [chats, setChats] = useState([])
+
+  const user = useSelector((s) => s.userInfo);
+  // console.log("from Sidebar", user)
   
   const handleChange = (e) => {
     setQuery(e.target.value);
@@ -34,22 +38,24 @@ const Sidebar = ({ showProfile }) => {
     e.preventDefault();
   };
   
-  // const fetchChatsOfUser = async (userId) => {
-  //   try {
-  //     const res = await fetch(
-  //       "http://localhost:3001/chat/"+userId
-  //     );
-  //     if (res.ok) {
-  //       const data = await res.json();
-  //       setChats(data)
-  //     }
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
-  // useEffect(()=>{
-  //   fetchChatsOfUser("619253f1a116e487f28419a4")
-  // }, [])
+  const fetchChatsOfUser = async (userId) => {
+    try {
+      const res = await fetch(
+        "http://localhost:3001/chat/"+userId
+      );
+      if (res.ok) {
+        const data = await res.json();
+        setChats(data)
+        console.log(chats)
+        console.log(userId)
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  useEffect(()=>{
+    fetchChatsOfUser(user._id)
+  }, [])
 
   const toggleDropdown = (e) => {
     setDropdown(!dropdown);
@@ -105,7 +111,7 @@ const Sidebar = ({ showProfile }) => {
       <hr />
       {/* CHATLISTS */}
       {
-        chats.map(c=> <ChatsLists key={c._id} chat={c}/>)
+        chats.map(chat=> <ChatsLists key={chat._id} chat={chat} userId={user._id}/>)
       }
     </Container>
   );

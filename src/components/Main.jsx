@@ -15,12 +15,13 @@ const socket = io(ADDRESS, { transports: ['websocket'] })
 
 const Main = () => {
   const [isProfile, setIsProfile] = useState(false)
+  const [conversations, setConversations] = useState([])
 
   useEffect(() => {
     
     socket.on('connect', () => {
-      
       console.log('Connection established!')
+      
     })
   })
 

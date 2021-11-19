@@ -1,6 +1,6 @@
 // import { Container, FormControl, InputGroup } from "react-bootstrap";
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import {
   Container,
   Dropdown,
@@ -17,6 +17,7 @@ import {
 } from "react-icons/bs";
 import ChatsLists from "./ChatsLists"
 import AvatarDefault from "../styles/default-avatar.png"
+import { setConversations } from "../redux/actions"
 // import { fetchChatsOfUser } from "../utilities/fetches.js"
 
 // 2) Show and Hide profile details
@@ -26,10 +27,14 @@ import AvatarDefault from "../styles/default-avatar.png"
 const Sidebar = ({ showProfile }) => {
   const [dropdown, setDropdown] = useState(false);
   const [query, setQuery] = useState("");
-  const [chats, setChats] = useState([])
+  // const [chats, setChats] = useState([])
 
+  const dispatch = useDispatch()
   const user = useSelector((s) => s.userInfo);
+  const conversations = useSelector((s) => s.conversations);
   // console.log("from Sidebar", user)
+  console.log("conversations state", conversations)
+  
   
   const handleChange = (e) => {
     setQuery(e.target.value);
@@ -46,9 +51,10 @@ const Sidebar = ({ showProfile }) => {
       if (res.ok) {
         const data = await res.json();
         console.log("CHATS FROM FETCH", data)
-        setChats(data)
-        console.log("CHATS SETTED HOOK", chats)
+        // setChats(data)
+        // console.log("CHATS SETTED HOOK", chats)
         // console.log(userId)
+        dispatch(setConversations(data))
       }
     } catch (error) {
       console.log(error);
@@ -111,9 +117,10 @@ const Sidebar = ({ showProfile }) => {
       </Container>
       <hr />
       {/* CHATLISTS */}
-      {
-        chats.map(chat=> <ChatsLists key={chat._id} chat={chat} userId={user._id}/>)
-      }
+      {/* {
+        conversations.map(conversation=> <ChatsLists userId={user._id}/>)
+      } */}
+      <ChatsLists />
     </Container>
   );
 };

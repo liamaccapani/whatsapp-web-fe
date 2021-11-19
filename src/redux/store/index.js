@@ -15,11 +15,13 @@ export const initialState = {
     avatar: "",
   },
   chats: {
-    active: "",
     list: {
       messages: [],
     },
   },
+  conversations: {
+    chatlists: []
+  }
   // socket: SocketClient
 };
 

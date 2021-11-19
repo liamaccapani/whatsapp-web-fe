@@ -35,6 +35,7 @@ const ChatsLists = ({ chat, userId }) => {
       <div className="--chatlist">
         {
           <ChatList
+          // onClick
             className="chat-list"
             dataSource={[
               {

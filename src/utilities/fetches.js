@@ -11,3 +11,22 @@ export const fetchChatsOfUser = async (userId) => {
     console.log(error);
   }
 };
+
+export const postAvatar = async (image) => {
+  try {
+    const form = new FormData();
+    form.append(image);
+    const resp = fetch(`${process.env.REACT_APP_LOCAL_URL}/user/avatar`, {
+      method: "POST",
+      headers: "",
+      body: form,
+    });
+    if (resp) {
+      return resp;
+    } else {
+      return "wrong credentials";
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};

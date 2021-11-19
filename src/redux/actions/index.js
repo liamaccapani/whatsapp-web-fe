@@ -1,4 +1,5 @@
 export const SET_USER_INFO = "SET_USER_INFO";
+export const FETCH_DATA = "FETCH_DATA";
 
 export const setUserInfo = (user) => {
   return {
@@ -7,5 +8,23 @@ export const setUserInfo = (user) => {
   };
 };
 
+export const fetchData = (url) => {
+  return async (dispatch, getState) => {
+    try {
+      let resp = await fetch(url);
+      if (resp.ok) {
+        const { data } = await resp.json();
+        dispatch({
+          type: "FETCH_DATA",
+          payload: data,
+        });
+      } else {
+        console.log("error");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
 
 

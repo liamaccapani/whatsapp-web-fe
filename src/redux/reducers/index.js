@@ -1,4 +1,4 @@
-import { SET_USER_INFO } from '../actions'
+import { SET_USER_INFO, FETCH_DATA } from '../actions'
 import { initialState } from '../store'
 
 export const reducer = (state = initialState, action) => {
@@ -8,7 +8,12 @@ export const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 userInfo: payload,
-            }
+            };
+            case FETCH_DATA:
+                return {
+                    ...state,
+                    userInfo: payload
+                }
         default: 
             return state
     }

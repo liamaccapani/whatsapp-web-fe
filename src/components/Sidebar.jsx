@@ -14,8 +14,10 @@ import {
   BsFillChatFill,
   BsFillExclamationCircleFill,
 } from "react-icons/bs";
+import {create, defaults} from "axios"
 import ChatsLists from "./ChatsLists"
 import AvatarDefault from "../styles/default-avatar.png"
+import API from "../tools/api";
 // import { fetchChatsOfUser } from "../utilities/fetches.js"
 
 // 2) Show and Hide profile details
@@ -32,6 +34,7 @@ const Sidebar = ({ showProfile }) => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
+    getUsers()
   };
   
   // const fetchChatsOfUser = async (userId) => {
@@ -50,6 +53,15 @@ const Sidebar = ({ showProfile }) => {
   // useEffect(()=>{
   //   fetchChatsOfUser("619253f1a116e487f28419a4")
   // }, [])
+  const URL = create({baseURL: "http://localhost:3001"})
+  const getUsers = async () =>{
+    const {data} = await API.get(
+      URL+ "/user?username=" + query
+    )
+    console.log("users that i'm looking for",data )
+    setQuery(data)
+    console.log("query", query)
+  }
 
   const toggleDropdown = (e) => {
     setDropdown(!dropdown);

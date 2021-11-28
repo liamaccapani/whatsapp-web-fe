@@ -28,7 +28,6 @@ function UpdateProfileAvatar() {
           <input
             onChange={(e) => setImage(e.target.files[0])}
             type="file"
-            action=""
           ></input>
         </Modal.Body>
 
